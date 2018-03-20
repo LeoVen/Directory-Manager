@@ -1,4 +1,4 @@
-# Directory-Manager
+# Directory-Manager @ EEP
 
 Basic File System Manager in RAM with basic Linux functions
 
@@ -14,3 +14,8 @@ Basic File System Manager in RAM with basic Linux functions
 
 * Compile with Visual Studio 2017
 * .c and .h files only
+
+## TODO
+
+* Define Structure
+* String Parser
