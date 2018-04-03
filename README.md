@@ -8,6 +8,7 @@ Currently only directories
 
 * help
 * exit
+* clear
 * ls
 * ls -l
 * mkdir dir_name

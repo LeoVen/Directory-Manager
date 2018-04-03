@@ -52,9 +52,10 @@ void printHelpMenu()
 	println("  Command List                                                     ");
 	println("                                                                   ");
 	println("  help                Shows this help menu                         ");
+	println("  exit                Exits program                                ");
+	println("  clear               Clears screen                                ");
 	println("  ls                  Lists directory content                      ");
 	println("  ls -l               Lists directory content with more datail     ");
-	println("  exit                Exits program                                ");
 	println("  mkdir [dir_name]    Makes a directory of name dir_name           ");
 	println("  rmdir [dir_name]    Removes directory of name dir_name           ");
 	println("  rm [dir_name]       Removes directory either empty or not        ");
