@@ -16,7 +16,7 @@
  *
  */
 
-#include "..\include\StringHandler.h"
+#include <StringHandler.h>
 
 int hashCode(char *command)
 {
@@ -40,6 +40,7 @@ int normalizeString(char *param)
 	for (i = 0; i < strlen(param); i++)
 		if (param[i] == '\n')
 			param[i] = '\0';
+	return 0;
 }
 
 // +-------------------------------------------------------------------------------------------------+
@@ -94,21 +95,22 @@ bool getUserInput(Directory **current)
 	char *userInput = (char *)malloc(sizeof(char) * MAX_NAME_SIZE);
 	fgets(userInput, MAX_NAME_SIZE, stdin);
 	int sp = checkUserInput(userInput);
-	char *next, *command, *param;
+	char *command, *param;
 	if (sp == 0) {
 		// Only one command
-		command = strtok_s(userInput, "\0", &next);
+		command = strtok(userInput, "\0");
 		param = NULL;
 		return switchCommand(current, command, param);
 	}
 	else if (sp == 1) {
-		command = strtok_s(userInput, " ", &next);
-		param = strtok_s(NULL, "\0", &next);
+		command = strtok(userInput, " ");
+		param = strtok(NULL, "\0");
 		return switchCommand(current, command, param);
 	}
 	else {
 		printf("More than two arguments is not supported\n");
 	}
+	return true;
 }
 
 bool switchCommand(Directory **current, char *command, char *parameter)

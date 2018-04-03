@@ -16,12 +16,8 @@
  *
  */
 
-#pragma once
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
+#ifndef DIRECTORY_H
+#define DIRECTORY_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,8 +28,8 @@ extern "C" {
 #define MAX_NAME_SIZE 30
 
 // Change if on linux / windows
-// #define CLEAR_SCREEN "clear"
-#define CLEAR_SCREEN "cls"
+#define CLEAR_SCREEN "clear"
+//#define CLEAR_SCREEN "cls"
 
 
 	typedef struct Directory {
@@ -66,6 +62,4 @@ extern "C" {
 
 	int printfBeforePrompt(Directory *curr);
 
-#ifdef __cplusplus
-}
-#endif
+#endif /* DIRECTORY_H */

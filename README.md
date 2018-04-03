@@ -19,4 +19,12 @@ Currently only directories
 
 ## TODO
 
-* Adapt Final project to compile with C on linux
+* ~~Adapt Final project to compile with C on linux~~
+
+## How to compile
+
+Simply go inside ```build``` and use ```make```. The binary executable should be at ```bin/dirmanager```.
+
+## Known issues
+
+* Program stops after around 5 minutes of use (no errors, why?)

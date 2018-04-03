@@ -15,6 +15,8 @@
  * Compiled in Visual Studio 2017
  *
  */
+#ifndef STRINGHANDLER_H
+#define STRINGHANDLER_H
 
 #include "Directory.h"
 
@@ -81,3 +83,5 @@ bool dirNameTest(char *cmd);
 void println(const char *str);
 
 char * strcat_head(char *str1, char *str2);
+
+#endif /* STRINGHANDLER_H */

@@ -16,11 +16,8 @@
  *
  */
 
-// For Visual Studio (strcpy)
-#pragma warning(disable : 4996)
-
-#include "..\include\Directory.h"
-#include "..\include\StringHandler.h"
+#include <Directory.h>
+#include <StringHandler.h>
 
 Directory * getDirectoryByName(char *name)
 {
@@ -170,6 +167,7 @@ int changeToParent(Directory **curr)
 {
 	if ((*curr)->parent != NULL)
 		(*curr) = (*curr)->parent;
+	return 0;
 }
 
 int printWorkingDirectory(Directory *curr)
