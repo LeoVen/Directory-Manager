@@ -156,6 +156,7 @@ int changeDirectory(Directory **curr, char *param)
 				(*curr) = scanner;
 				break;
 			}
+			scanner = scanner->next;
 		}
 	}
 	else
