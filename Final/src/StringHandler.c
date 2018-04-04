@@ -59,7 +59,8 @@ void printHelpMenu()
 	println("  mkdir [dir_name]    Makes a directory of name dir_name           ");
 	println("  rmdir [dir_name]    Removes directory of name dir_name           ");
 	println("  rm [dir_name]       Removes directory either empty or not        ");
-	println("  pwd                 Print working directory                      ");
+	println("  pwd                 Print working directory                      ");7
+	println("  cd                  Change to root directory                     ");
 	println("  cd ..               Change directory to parent directory         ");
 	println("  cd [dir_name]       Change to directory of name dir_name         ");
 	println("                                                                   ");
@@ -106,6 +107,10 @@ bool getUserInput(Directory **current)
 	else if (sp == 1) {
 		command = strtok(userInput, " ");
 		param = strtok(NULL, "\0");
+		if (strlen(param) > 20) {
+			printf("Parameter size must not be greater than 20\n");
+			return true;
+		}
 		return switchCommand(current, command, param);
 	}
 	else {
@@ -119,10 +124,11 @@ bool switchCommand(Directory **current, char *command, char *parameter)
 	int hash = hashCode(command);
 	if (hash == hashCode("mkdir")) {
 		if (parameter != NULL && dirNameTest(parameter)) {
+			normalizeString(parameter);
 			if (!dirExists((*current), parameter)) {
-				if (hashCode(parameter) == hashCode("/")) {
-					printf("Directory with name / not allowed\n");
-					return 1;
+				if (strlen(parameter) < 3) {
+					printf("Directory name must not be smaller than 3\n");
+					return true;
 				}
 				normalizeString(parameter);
 				makeDirectory(current, parameter);
@@ -171,10 +177,13 @@ bool switchCommand(Directory **current, char *command, char *parameter)
 		return false;
 	}
 	else if (hash == hashCode("cd")) {
-		if (hashCode(parameter) == hashCode(".."))
+		if (parameter == NULL) {
+			changeToRoot(current);
+		}
+		else if (hashCode(parameter) == hashCode(".."))
 			changeToParent(current);
 		else
-			changeDirectory(current, parameter);
+			changeDirectory(current, parameter);	
 	}
 	else {
 		printf("No such command. Enter 'help' to see command list\n");
