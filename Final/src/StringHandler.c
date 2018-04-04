@@ -59,7 +59,7 @@ void printHelpMenu()
 	println("  mkdir [dir_name]    Makes a directory of name dir_name           ");
 	println("  rmdir [dir_name]    Removes directory of name dir_name           ");
 	println("  rm [dir_name]       Removes directory either empty or not        ");
-	println("  pwd                 Print working directory                      ");7
+	println("  pwd                 Print working directory                      ");
 	println("  cd                  Change to root directory                     ");
 	println("  cd ..               Change directory to parent directory         ");
 	println("  cd [dir_name]       Change to directory of name dir_name         ");
