@@ -28,4 +28,4 @@ Simply go inside ```build``` and use ```make```. The binary executable should be
 
 ## Known issues
 
-* Program stops after around 5 minutes of use (no errors, why?)
+* Currently none
